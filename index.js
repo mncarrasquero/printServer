@@ -67,9 +67,10 @@ download(url, options, function(err){
             copies: 3,
             copie: 3
           };
-          
+          //maldito maduro
+          console.log(path.resolve('guias', idVenta+'.pdf'));
           printer
-          .print(path.join('guias',idVenta+'.pdf') ,optionsPrinter)
+          .print(path.resolve('guias', idVenta+'.pdf'))
           .then(function(value) {
             res.send({ 
               status: '200',
