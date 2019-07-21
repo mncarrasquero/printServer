@@ -50,10 +50,10 @@ download(url, options, function(err){
       
       
       console.log( path.join('guias',idVenta+'.pdf') );
-          const assets = {
-          guiaEnvioBytes: fs.readFileSync(path.resolve('./guias/'+idVenta+'.pdf')),
-        };
-        const pdfDoc = PDFDocumentFactory.load(assets.guiaEnvioBytes);
+        //   const assets = {
+        //   guiaEnvioBytes: fs.readFileSync(path.resolve('./guias/'+idVenta+'.pdf')),
+        // };
+        const pdfDoc = PDFDocumentFactory.load(fs.readFileSync(path.resolve('./guias/'+idVenta+'.pdf')));
         
         pdfDoc.removePage(0)
         const pdfBytes = PDFDocumentWriter.saveToBytes(pdfDoc);
