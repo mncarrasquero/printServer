@@ -42,8 +42,8 @@ download(url, options, function(err){
       })      
     }else{
     
-
-      //ya se decargo 
+      setTimeout(function(){ 
+           //ya se decargo 
       //ahora modificar 
       const arichivo = './guias/'+idVenta+'.pdf';
       var direccionArchivo = path.dirname(arichivo);
@@ -87,6 +87,10 @@ download(url, options, function(err){
               url: url
             })
           })
+      
+      }, 2000);
+
+   
          
 
       }   
