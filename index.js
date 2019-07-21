@@ -58,7 +58,7 @@ download(url, options, function(err){
         pdfDoc.removePage(0)
         const pdfBytes = PDFDocumentWriter.saveToBytes(pdfDoc);
       
-        const filePath = `${__dirname}/guias/`+idVenta+`.pdf`;
+        const filePath = path.resolve('./guias/'+idVenta+'.pdf');
         fs.writeFileSync(filePath, pdfBytes);
         console.log(`PDF file written to: ${filePath}`);
 
