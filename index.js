@@ -49,7 +49,7 @@ download(url, options, function(err){
       var direccionArchivo = path.dirname(arichivo);
       
       
-      console.log( path.resolve('./guias/'+idVenta+'.pdf'));
+      console.log( path.join('guias',idVenta+'.pdf') );
           const assets = {
           guiaEnvioBytes: fs.readFileSync(path.resolve('./guias/'+idVenta+'.pdf')),
         };
@@ -58,7 +58,7 @@ download(url, options, function(err){
         pdfDoc.removePage(0)
         const pdfBytes = PDFDocumentWriter.saveToBytes(pdfDoc);
       
-        const filePath = path.resolve('./guias/'+idVenta+'.pdf');
+        const filePath = path.join('guias',idVenta+'.pdf');
         fs.writeFileSync(filePath, pdfBytes);
         console.log(`PDF file written to: ${filePath}`);
 
@@ -69,7 +69,7 @@ download(url, options, function(err){
           };
           
           printer
-          .print(path.resolve('./guias/'+idVenta+'.pdf'),optionsPrinter)
+          .print(path.join('guias',idVenta+'.pdf') ,optionsPrinter)
           .then(function(value) {
             res.send({ 
               status: '200',
